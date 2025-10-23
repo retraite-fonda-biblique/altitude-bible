@@ -1,0 +1,1603 @@
+/* Variables CSS globales */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --text-color: #2c3e50;
+    --light-bg: #f8f9fa;
+    --dark-bg: #343a40;
+}
+
+/* Styles généraux */
+body {
+    font-family: 'Lato', sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1.5rem;
+}
+
+/* Navbar */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--primary-color) !important;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-link:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover:after {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: var(--secondary-color) !important;
+}
+
+/* Sections principales */
+main {
+    min-height: 100vh;
+    padding: 0;
+    margin-top: 120px; /* Hauteur de la navbar + espace supplémentaire */
+}
+
+/* Exception pour la page d'accueil */
+main section.hero {
+    margin-top: -120px; /* Annule la marge du main pour la page d'accueil */
+}
+
+@media (min-width: 992px) {
+    main {
+        margin-top: 150px; /* Encore plus d'espace sur les grands écrans */
+    }
+    
+    main section.hero {
+        margin-top: -150px; /* Annule la marge du main pour la page d'accueil sur grands écrans */
+    }
+}
+
+section {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+@media (min-width: 1400px) {
+    .container-fluid {
+        padding-left: 5% !important;
+        padding-right: 5% !important;
+    }
+}
+
+@media (min-width: 1600px) {
+    .container-fluid {
+        padding-left: 8% !important;
+        padding-right: 8% !important;
+    }
+}
+
+@media (min-width: 1920px) {
+    .container-fluid {
+        padding-left: 12% !important;
+        padding-right: 12% !important;
+    }
+}
+
+/* Hero section */
+.hero {
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('data/montagnes.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+    color: white;
+    min-height: calc(100vh - 76px); /* 100vh moins la hauteur de la navbar */
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.hero .container {
+    padding: 1rem;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.title-container {
+    padding: 7rem 0 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+@media (min-width: 992px) {
+    .title-container {
+        padding: 9rem 0 2rem;
+    }
+}
+
+.title-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+}
+
+.title-container .inscription-button-container {
+    background: none;
+    padding: 0;
+}
+
+.title-container .btn-xl {
+    background-color: rgba(44, 62, 80, 0.9);
+    transition: all 0.3s ease;
+}
+
+.title-container .btn-xl:hover {
+    background-color: rgb(44, 62, 80);
+    transform: translateY(-2px);
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 1.3;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .title-container {
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+    }
+}
+
+.texte-1 {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.text-block {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 0;
+    flex: 0 1 auto;
+}
+
+.video-container {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.right-content {
+    display: flex;
+    align-items: center;
+}
+
+.hero .lead {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-size: 1.1rem;
+}
+
+.text-block p {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.hero .lead strong {
+    font-weight: 600;
+}
+
+.hero em {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-size: 1rem;
+    display: block;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.hero .btn-primary {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    background-color: #2c3e50;
+    border: none;
+    margin-top: 0.5rem;
+}
+
+.hero .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+    background-color: #34495e;
+}
+
+/* Styles pour la miniature vidéo */
+.video-thumbnail {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    max-width: 100%;
+    margin-bottom: 2rem;
+}
+
+.right-content {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.video-thumbnail img {
+    width: 100%;
+    height: auto;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.video-thumbnail .play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.video-thumbnail .play-overlay i {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.video-thumbnail:hover {
+    /* Pas de déplacement */
+}
+
+.video-thumbnail:hover img {
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.video-thumbnail:hover .play-overlay {
+    opacity: 1;
+    /* Pas de déplacement ni d'agrandissement */
+}
+
+/* Styles pour la vidéo principale */
+.video-container {
+    position: relative;
+    width: 100%;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Style pour le bouton d'inscription */
+.inscription-button-container {
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    display: inline-block;
+}
+
+.btn-xl {
+    padding: 0.75rem 1.75rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-xl:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.video-container video {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #000;
+}
+
+/* Style des contrôles vidéo */
+video::-webkit-media-controls {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+video::-webkit-media-controls-panel {
+    padding: 0 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .video-container {
+        margin: 0 -15px 2rem;
+        border-radius: 0;
+    }
+    
+    /* Amélioration de l'affichage vidéo sur mobile */
+    .video-container video {
+        object-fit: contain !important;
+        background-color: #000;
+    }
+    
+    /* Ajustement de la hauteur du conteneur vidéo sur mobile */
+    .video-container {
+        height: 250px;
+        min-height: 250px;
+    }
+    
+    /* Amélioration de la mise en page des colonnes sur mobile */
+    .hero .row {
+        flex-direction: column;
+    }
+    
+    .hero .col-lg-5,
+    .hero .col-lg-7 {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    
+    /* Ajustement des blocs de texte sur mobile */
+    .text-block {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Amélioration de l'espacement sur mobile */
+    .hero .container-fluid {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Contenu */
+.contenu {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Galerie photos */
+.photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.photo {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.photo:hover {
+    transform: translateY(-5px);
+}
+
+.photo img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Témoignages */
+.temoignage {
+    background-color: white;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.temoignage:hover {
+    transform: translateY(-5px);
+}
+
+.temoignage p {
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+/* Formulaire de contact */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+    padding: 0.75rem;
+}
+
+/* Boutons */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+}
+
+/* Carousel */
+.carousel {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.carousel-item img {
+    border-radius: 10px;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+/* Hover effects */
+.hover-zoom {
+    transition: transform 0.3s ease;
+}
+
+.hover-zoom:hover {
+    transform: scale(1.02);
+}
+
+/* Animations de page */
+body {
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    animation: fadeFromBlack 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    pointer-events: none;
+    backdrop-filter: blur(5px);
+}
+
+@keyframes fadeFromBlack {
+    0% {
+        opacity: 1;
+        backdrop-filter: blur(5px);
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        backdrop-filter: blur(0px);
+    }
+}
+
+.page-transition::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    opacity: 0;
+    visibility: visible;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    backdrop-filter: blur(0px);
+}
+
+.page-transition.fade-out::before {
+    opacity: 1;
+    backdrop-filter: blur(5px);
+}
+
+/* Autres animations */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        padding-top: 56px;
+    }
+
+    .hero {
+        padding: 2rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .contenu {
+        padding: 1rem;
+    }
+
+    .photos {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    
+    /* Améliorations spécifiques pour la page retraite sur mobile */
+    .retraite .contenu {
+        padding: 1rem;
+        margin: 0;
+        border-radius: 0;
+    }
+    
+    .retraite .card {
+        margin-bottom: 1rem;
+        padding: 1rem;
+    }
+    
+    .retraite .card.bg-light {
+        background-color: rgba(248, 249, 250, 0.95) !important;
+        backdrop-filter: blur(5px);
+    }
+    
+    .retraite .card.alignement-bloc {
+        background-color: rgba(255, 255, 255, 0.9) !important;
+        backdrop-filter: blur(5px);
+    }
+    
+    /* Amélioration de l'affichage des images avec texte sur mobile */
+    .retraite .text-center img {
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Amélioration de la lisibilité du texte sur mobile */
+    .retraite .justify-text {
+        text-align: left;
+        line-height: 1.7;
+        font-size: 0.95rem;
+    }
+    
+    /* Amélioration de l'affichage des blocs de citation */
+    .retraite blockquote {
+        font-size: 1rem;
+        padding: 1rem;
+        margin: 1.5rem 0;
+        background-color: rgba(248, 249, 250, 0.8);
+        border-radius: 8px;
+    }
+    
+    /* Amélioration de l'affichage des cartes avec images */
+    .retraite .card .row {
+        flex-direction: column;
+    }
+    
+    .retraite .card .col-md-4 {
+        order: -1;
+        margin-bottom: 1rem;
+    }
+    
+    .retraite .card .col-md-8 {
+        order: 1;
+    }
+    
+    /* Amélioration de l'espacement général */
+    .retraite .container {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    
+    .retraite h1 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+    
+    .retraite h2 {
+        font-size: 1.5rem;
+    }
+    
+    .retraite h3 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Améliorations pour les très petits écrans (smartphones en portrait) */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+    
+    .hero .btn-xl {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+        margin: 0.25rem;
+    }
+    
+    .video-container {
+        height: 200px;
+        min-height: 200px;
+    }
+    
+    .retraite .contenu {
+        padding: 0.75rem;
+    }
+    
+    .retraite .card {
+        padding: 0.75rem;
+    }
+    
+    .retraite .justify-text {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+    
+    .retraite h1 {
+        font-size: 1.6rem;
+    }
+    
+    .retraite h2 {
+        font-size: 1.3rem;
+    }
+    
+    .retraite h3 {
+        font-size: 1.1rem;
+    }
+    
+    .text-block {
+        padding: 1rem;
+    }
+    
+    .text-block p {
+        font-size: 1rem;
+    }
+}
+
+/* Améliorations spécifiques pour la page enseignements sur mobile */
+@media (max-width: 768px) {
+    .enseignements .bible-image-container-full {
+        margin-left: -1rem;
+        margin-right: -1rem;
+        width: calc(100% + 2rem);
+    }
+    
+    .enseignements .bible-image-container-full img {
+        object-fit: cover;
+        min-height: 280px;
+    }
+    
+    .enseignements .bible-image-overlay-full {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .enseignements .bible-image-overlay-full h3 {
+        font-size: 1.4rem;
+        line-height: 1.3;
+        margin-bottom: 1rem;
+    }
+    
+    .enseignements .bible-image-center {
+        position: relative;
+        top: auto;
+        transform: none;
+        padding: 0.5rem 0;
+    }
+    
+    .enseignements .bible-image-center .row {
+        flex-direction: column;
+    }
+    
+    .enseignements .bible-image-center .col-lg-4 {
+        width: 100%;
+        margin-bottom: 0.75rem;
+    }
+    
+    .enseignements .bible-text-block {
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(8px);
+        padding: 0.75rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .enseignements .bible-text-block p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        text-align: left;
+    }
+    
+    .enseignements .bible-image-bottom {
+        padding: 0.75rem 0 0.5rem;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+    }
+    
+    .enseignements .bible-text-block-single {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(5px);
+        padding: 0.75rem;
+    }
+    
+    .enseignements .bible-text-block-single p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 480px) {
+    .enseignements .bible-image-container-full img {
+        min-height: 250px;
+    }
+    
+    .enseignements .bible-image-overlay-full h3 {
+        font-size: 1.2rem;
+    }
+    
+    .enseignements .bible-text-block {
+        padding: 0.5rem;
+    }
+    
+    .enseignements .bible-text-block p {
+        font-size: 0.85rem;
+    }
+    
+    .enseignements .bible-text-block-single {
+        padding: 0.5rem;
+    }
+    
+    .enseignements .bible-text-block-single p {
+        font-size: 0.85rem;
+    }
+}
+
+/* Utilitaires */
+.text-center {
+    text-align: center;
+}
+
+.mb-4 {
+    margin-bottom: 2rem;
+}
+
+.mt-4 {
+    margin-top: 2rem;
+}
+
+/* Styles spécifiques pour les sections */
+.enseignements .lead {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+}
+
+.retraite blockquote {
+    font-style: italic;
+    border-left: 4px solid var(--secondary-color);
+    padding-left: 1rem;
+    margin: 2rem 0;
+}
+
+.infos-pratiques .card {
+    transition: transform 0.3s ease;
+}
+
+.infos-pratiques .card:hover {
+    transform: translateY(-5px);
+}
+
+.galerie .card {
+    height: 100%;
+}
+
+/* Styles pour la navbar fixed */
+.navbar.fixed-top {
+    backdrop-filter: blur(10px);
+}
+
+.navbar .nav-item .btn-primary {
+    color: white !important;
+    padding: 0.5rem 1rem;
+}
+
+.navbar .nav-item .btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+/* Bouton d'inscription avec couleur bleue plus claire */
+.btn-inscription {
+    background-color: #5dade2 !important;
+    border-color: #5dade2 !important;
+}
+
+.btn-inscription:hover {
+    background-color: #4a9bd1 !important;
+    border-color: #4a9bd1 !important;
+    transform: translateY(-2px);
+}
+
+/* Animation de défilement continu pour les témoignages */
+.temoignages-scroll-container {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    height: 250px;
+    margin: 0.25rem 0;
+}
+
+.temoignages-scroll-track {
+    display: flex;
+    animation: scroll-temoignages 30s linear infinite;
+    width: max-content;
+    gap: 2rem;
+    align-items: flex-start;
+    padding-top: 1rem;
+}
+
+.temoignage-item {
+    flex-shrink: 0;
+    width: 450px;
+    min-height: 200px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.temoignage-item .bg-light {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    transition: transform 0.3s ease;
+    padding: 1.5rem;
+}
+
+.temoignage-item:hover .bg-light {
+    transform: scale(1.05);
+}
+
+@keyframes scroll-temoignages {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Pause au survol */
+.temoignages-scroll-container:hover .temoignages-scroll-track {
+    animation-play-state: paused;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .temoignage-item {
+        width: 350px;
+    }
+    
+    .temoignages-scroll-container {
+        height: 220px;
+    }
+    
+    .temoignage-item .bg-light {
+        min-height: 180px;
+        padding: 1rem;
+    }
+    
+    .temoignages-scroll-track {
+        gap: 1.5rem;
+    }
+}
+
+/* Styles pour les flèches du carousel de témoignages */
+#temoignagesCarousel .carousel-control-prev,
+#temoignagesCarousel .carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(52, 58, 64, 0.8);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+#temoignagesCarousel .carousel-control-prev {
+    left: -25px;
+}
+
+#temoignagesCarousel .carousel-control-next {
+    right: -25px;
+}
+
+#temoignagesCarousel .carousel-control-prev:hover,
+#temoignagesCarousel .carousel-control-next:hover {
+    background-color: rgba(52, 58, 64, 1);
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
+}
+
+#temoignagesCarousel .carousel-control-prev-icon,
+#temoignagesCarousel .carousel-control-next-icon {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+#temoignagesCarousel .carousel-control-prev-icon {
+    background-image: none;
+    position: relative;
+}
+
+#temoignagesCarousel .carousel-control-prev-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 8px;
+    height: 8px;
+    border-left: 2px solid #343a40;
+    border-bottom: 2px solid #343a40;
+}
+
+#temoignagesCarousel .carousel-control-next-icon {
+    background-image: none;
+    position: relative;
+}
+
+#temoignagesCarousel .carousel-control-next-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #343a40;
+    border-bottom: 2px solid #343a40;
+}
+
+/* Responsive pour les flèches */
+@media (max-width: 768px) {
+    #temoignagesCarousel .carousel-control-prev,
+    #temoignagesCarousel .carousel-control-next {
+        width: 40px;
+        height: 40px;
+    }
+    
+    #temoignagesCarousel .carousel-control-prev {
+        left: -20px;
+    }
+    
+    #temoignagesCarousel .carousel-control-next {
+        right: -20px;
+    }
+    
+    #temoignagesCarousel .carousel-control-prev-icon,
+    #temoignagesCarousel .carousel-control-next-icon {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+/* Styles extraits des fichiers HTML */
+
+/* Styles pour la miniature vidéo (index.html) */
+.video-thumbnail {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.video-thumbnail:hover {
+    opacity: 0.8;
+}
+
+.video-thumbnail .play-overlay i {
+    font-size: 4rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.video-thumbnail:hover .play-overlay i {
+    font-size: 4.5rem;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+}
+
+/* Styles pour le texte justifié (retraite.html, infos-pratiques.html) */
+.justify-text {
+    text-align: justify;
+}
+
+/* Blocs invisibles pour l'alignement (retraite.html) */
+.alignement-bloc {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+/* Réduction de l'espacement pour tous les blocs (retraite.html) */
+.contenu .card {
+    margin-bottom: 1rem;
+}
+
+/* Styles pour les témoignages longs (temoignages.html) */
+.temoignage-long p {
+    text-align: justify;
+}
+
+/* Styles pour la page enseignements (enseignements.html) */
+.enseignements .contenu p {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.8;
+}
+
+.enseignements .lead {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+/* Styles pour l'image bible */
+.bible-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.bible-image-container img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.bible-image-container:hover img {
+    transform: scale(1.02);
+}
+
+.bible-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+    padding: 2rem 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.bible-image-overlay p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    color: #2c3e50;
+}
+
+.bible-image-overlay .lead {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.bible-image-overlay .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Image en pleine largeur */
+.bible-image-container-full {
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+}
+
+.bible-image-container-full img {
+    width: 100%;
+    height: auto;
+    min-height: 500px;
+    object-fit: contain;
+}
+
+.bible-image-overlay-full {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 4rem;
+}
+
+.bible-image-overlay-full .container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+}
+
+.bible-image-overlay-full .row {
+    width: 100%;
+    justify-content: center;
+}
+
+.bible-image-overlay-full .col-lg-8 {
+    text-align: center;
+}
+
+.bible-image-overlay-full h3 {
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
+    font-size: 2.5rem;
+    line-height: 1.3;
+    margin: 0;
+    font-weight: 700;
+}
+
+/* 3 blocs au centre de l'image */
+.bible-image-center {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.3), transparent);
+    padding: 2rem 0;
+}
+
+/* Dernier paragraphe en bas de l'image */
+.bible-image-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: 3.5rem 0 1rem;
+}
+
+.bible-text-block {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    height: 100%;
+    backdrop-filter: blur(5px);
+}
+
+.bible-text-block p {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    line-height: 1.6;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-align: justify;
+}
+
+.bible-text-block-single {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.bible-text-block-single p {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    color: #2c3e50;
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+/* Styles pour la galerie (galerie.html) */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem 0;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay i {
+    color: white;
+    font-size: 2rem;
+}
+
+/* Modal pour l'image agrandie */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(5px);
+}
+
+.image-modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    margin: auto;
+}
+
+.modal-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.modal-nav:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.modal-prev {
+    left: -60px;
+}
+
+.modal-next {
+    right: -60px;
+}
+
+/* Responsive pour enseignements */
+@media (max-width: 768px) {
+    .bible-image-container img {
+        height: 250px;
+    }
+    
+    .bible-image-overlay {
+        padding: 1.5rem 1rem 1rem;
+    }
+    
+    .bible-image-overlay p {
+        font-size: 1rem;
+    }
+    
+    .bible-image-container-full img {
+        min-height: 300px;
+        object-fit: cover;
+    }
+    
+    .bible-image-overlay-full {
+        padding-top: 1rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    
+    .bible-image-overlay-full h3 {
+        font-size: 1.5rem;
+        line-height: 1.2;
+    }
+    
+    /* 3 blocs centraux sur petits écrans: comportement par défaut (sous l'image) */
+    .bible-image-center {
+        padding: 0.5rem 0;
+        position: relative;
+        top: auto;
+        transform: none;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.6), transparent);
+    }
+    
+    .bible-image-center .row {
+        flex-direction: column;
+    }
+    
+    .bible-image-center .col-lg-4 {
+        width: 100%;
+        margin-bottom: 0.75rem;
+    }
+    
+    .bible-text-block {
+        padding: 0.75rem;
+        margin-bottom: 0.5rem;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(8px);
+    }
+    
+    .bible-text-block p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        text-align: left;
+    }
+    
+    .bible-image-bottom {
+        padding: 1rem 0 0.5rem;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+    }
+    
+    .bible-text-block-single {
+        padding: 0.75rem;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(5px);
+    }
+    
+    .bible-text-block-single p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+}
+
+/* En orientation portrait: forcer l'overlay sur l'image, quel que soit l'appareil */
+@media (orientation: portrait) {
+    .bible-image-container-full img {
+        min-height: 360px; /* plus d'espace vertical pour éviter les chevauchements */
+        object-fit: cover;
+    }
+    .bible-image-center {
+        position: absolute;
+        top: 28%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        padding: 0.3rem 0 0.1rem;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.6), transparent);
+        z-index: 2;
+    }
+    .bible-image-center .col-lg-4 {
+        margin-bottom: 0.3rem;
+    }
+    .bible-image-center .bible-text-block {
+        padding: 0.35rem 0.4rem;
+    }
+    .bible-image-center .bible-text-block p {
+        font-size: 0.78rem;
+        line-height: 1.35;
+    }
+    /* En portrait: placer le bloc blanc SOUS l'image (pas en overlay) */
+    .bible-image-bottom {
+        position: static;
+        background: none;
+        padding: 1rem 0 0;
+        margin-top: 0.5rem;
+    }
+}
+
+/* Responsive pour galerie */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+    
+    .gallery-item img {
+        height: 200px;
+    }
+    
+    .modal-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+    
+    .modal-prev {
+        left: -50px;
+    }
+    
+    .modal-next {
+        right: -50px;
+    }
+}
+
+/* Améliorations pour très petits écrans */
+@media (max-width: 480px) {
+    .bible-image-container-full img {
+        min-height: 250px;
+    }
+    
+    .bible-image-overlay-full h3 {
+        font-size: 1.3rem;
+    }
+    
+    .bible-text-block {
+        padding: 0.5rem;
+    }
+    
+    .bible-text-block p {
+        font-size: 0.8rem;
+    }
+    
+    .bible-text-block-single {
+        padding: 0.5rem;
+    }
+    
+    .bible-text-block-single p {
+        font-size: 0.8rem;
+    }
+}
