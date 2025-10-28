@@ -67,45 +67,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 function playVideo() {
     const thumbnail = document.querySelector('.video-thumbnail');
     const video = document.getElementById('mainVideo');
-    const rightContent = document.querySelector('.right-content');
     
     if (thumbnail && video) {
         // Masquer la miniature
         thumbnail.style.display = 'none';
         
-        // Sur mobile, supprimer le fond du conteneur parent
-        if (rightContent && window.innerWidth <= 768) {
-            rightContent.style.background = 'transparent';
-            rightContent.style.padding = '0';
-        }
-        
         // Afficher et jouer la vidéo
         video.style.display = 'block';
-        video.style.position = 'relative';
-        
-        // Jouer la vidéo
-        video.play().catch(error => {
-            console.log('Erreur lors de la lecture:', error);
-        });
-        
-        // Sur mobile, proposer le plein écran
-        if (window.innerWidth <= 768 && video.requestFullscreen) {
-            video.addEventListener('play', function requestFullscreenOnce() {
-                // Petite temporisation pour laisser la vidéo se charger
-                setTimeout(() => {
-                    if (document.fullscreenEnabled || document.webkitFullscreenEnabled) {
-                        if (video.requestFullscreen) {
-                            video.requestFullscreen();
-                        } else if (video.webkitRequestFullscreen) {
-                            video.webkitRequestFullscreen();
-                        } else if (video.webkitEnterFullscreen) {
-                            video.webkitEnterFullscreen();
-                        }
-                    }
-                }, 100);
-                video.removeEventListener('play', requestFullscreenOnce);
-            });
-        }
+        video.play();
     }
 }
 
