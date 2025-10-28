@@ -67,14 +67,45 @@ document.addEventListener('DOMContentLoaded', async () => {
 function playVideo() {
     const thumbnail = document.querySelector('.video-thumbnail');
     const video = document.getElementById('mainVideo');
+    const rightContent = document.querySelector('.right-content');
     
     if (thumbnail && video) {
         // Masquer la miniature
         thumbnail.style.display = 'none';
         
+        // Sur mobile, supprimer le fond du conteneur parent
+        if (rightContent && window.innerWidth <= 768) {
+            rightContent.style.background = 'transparent';
+            rightContent.style.padding = '0';
+        }
+        
         // Afficher et jouer la vidéo
         video.style.display = 'block';
-        video.play();
+        video.style.position = 'relative';
+        
+        // Jouer la vidéo
+        video.play().catch(error => {
+            console.log('Erreur lors de la lecture:', error);
+        });
+        
+        // Sur mobile, proposer le plein écran
+        if (window.innerWidth <= 768 && video.requestFullscreen) {
+            video.addEventListener('play', function requestFullscreenOnce() {
+                // Petite temporisation pour laisser la vidéo se charger
+                setTimeout(() => {
+                    if (document.fullscreenEnabled || document.webkitFullscreenEnabled) {
+                        if (video.requestFullscreen) {
+                            video.requestFullscreen();
+                        } else if (video.webkitRequestFullscreen) {
+                            video.webkitRequestFullscreen();
+                        } else if (video.webkitEnterFullscreen) {
+                            video.webkitEnterFullscreen();
+                        }
+                    }
+                }, 100);
+                video.removeEventListener('play', requestFullscreenOnce);
+            });
+        }
     }
 }
 
@@ -205,4 +236,36 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // Fonction pour télécharger le flyer
+    function setupDownloadFlyer(buttonId) {
+        const button = document.getElementById(buttonId);
+        if (button) {
+            button.addEventListener('click', async function() {
+                try {
+                    const response = await fetch('data/flyer_2026.pdf');
+                    const blob = await response.blob();
+                    
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.style.display = 'none';
+                    a.href = url;
+                    a.download = 'flyer_2026.pdf';
+                    
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    
+                    window.URL.revokeObjectURL(url);
+                } catch (error) {
+                    console.error('Erreur lors du téléchargement:', error);
+                    alert('Erreur lors du téléchargement du flyer. Veuillez réessayer.');
+                }
+            });
+        }
+    }
+
+    setupDownloadFlyer('downloadFlyer');
+    
+    setupDownloadFlyer('downloadFlyerHome');
 });

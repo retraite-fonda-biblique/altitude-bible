@@ -304,10 +304,6 @@ section {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.video-thumbnail:hover {
-    /* Pas de déplacement */
-}
-
 .video-thumbnail:hover img {
     border-color: rgba(255, 255, 255, 0.4);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -322,7 +318,7 @@ section {
 .video-container {
     position: relative;
     width: 100%;
-    background: #000;
+    background: transparent;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -371,18 +367,25 @@ video::-webkit-media-controls-panel {
     .video-container {
         margin: 0 -15px 2rem;
         border-radius: 0;
+        height: auto;
+        min-height: auto;
+        background: transparent;
     }
     
     /* Amélioration de l'affichage vidéo sur mobile */
     .video-container video {
-        object-fit: contain !important;
-        background-color: #000;
+        object-fit: cover !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 250px;
+        max-height: 400px;
+        position: relative !important;
     }
     
-    /* Ajustement de la hauteur du conteneur vidéo sur mobile */
-    .video-container {
-        height: 250px;
-        min-height: 250px;
+    /* Supprimer le fond du conteneur parent pour éviter le voile gris */
+    .right-content {
+        background: transparent !important;
+        padding: 0 !important;
     }
     
     /* Amélioration de la mise en page des colonnes sur mobile */
@@ -713,8 +716,13 @@ body::before {
     }
     
     .video-container {
-        height: 200px;
+        height: auto;
+        min-height: auto;
+    }
+    
+    .video-container video {
         min-height: 200px;
+        max-height: 300px;
     }
     
     .retraite .contenu {
