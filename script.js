@@ -81,22 +81,22 @@ function playVideo() {
 // Script pour la galerie d'images (galerie.html)
 // Liste de toutes les images du dossier data
 const images = [
-    { path: './data/alpes.jpg', title: 'Vue des Alpes' },
-    { path: './data/bible.jpg', title: 'Étude biblique' },
-    { path: './data/calme_1.jpg', title: 'Moment de calme' },
-    { path: './data/calme_2.jpg', title: 'Sérénité' },
-    { path: './data/communion.jpg', title: 'Communion' },
-    { path: './data/groupe.jpg', title: 'Groupe de participants' },
-    { path: './data/conf.jpg', title: 'Conférence' },
-    { path: './data/luge.jpg', title: 'Activités de luge' },
-    { path: './data/luge_2.jpg', title: 'Moments de luge' },
-    { path: './data/messe.jpg', title: 'Célébration' },
-    { path: './data/table_2.jpg', title: 'Moment de convivialité' },
-    { path: './data/montagnes.jpg', title: 'Vue sur les montagnes' },
-    { path: './data/nuit.jpg', title: 'Vue nocturne' },
-    { path: './data/pretre.jpg', title: 'Prêtre' },
-    { path: './data/rire.jpg', title: 'Moments de joie' },
-    { path: './data/table.jpg', title: 'Repas partagé' },
+    { path: './data/img/alpes.jpg', title: 'Vue des Alpes' },
+    { path: './data/img/bible.jpg', title: 'Étude biblique' },
+    { path: './data/img/calme_1.jpg', title: 'Moment de calme' },
+    { path: './data/img/calme_2.jpg', title: 'Sérénité' },
+    { path: './data/img/communion.jpg', title: 'Communion' },
+    { path: './data/img/groupe.jpg', title: 'Groupe de participants' },
+    { path: './data/img/conf.jpg', title: 'Conférence' },
+    { path: './data/img/luge.jpg', title: 'Activités de luge' },
+    { path: './data/img/luge_2.jpg', title: 'Moments de luge' },
+    { path: './data/img/messe.jpg', title: 'Célébration' },
+    { path: './data/img/table_2.jpg', title: 'Moment de convivialité' },
+    { path: './data/img/montagnes.jpg', title: 'Vue sur les montagnes' },
+    { path: './data/img/nuit.jpg', title: 'Vue nocturne' },
+    { path: './data/img/pretre.jpg', title: 'Prêtre' },
+    { path: './data/img/rire.jpg', title: 'Moments de joie' },
+    { path: './data/img/table.jpg', title: 'Repas partagé' },
 ];
 
 let currentImageIndex = 0;
@@ -206,25 +206,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Fonction pour télécharger le flyer
-    function setupDownloadFlyer(buttonId) {
+    // Fonction pour télécharger un flyer
+    function setupDownloadFlyer(buttonId, filePath, fileName) {
         const button = document.getElementById(buttonId);
         if (button) {
             button.addEventListener('click', async function() {
                 try {
-                    const response = await fetch('data/flyer_2026.pdf');
+                    const response = await fetch(filePath);
                     const blob = await response.blob();
-                    
+
                     const url = window.URL.createObjectURL(blob);
                     const a = document.createElement('a');
                     a.style.display = 'none';
                     a.href = url;
-                    a.download = 'flyer_2026.pdf';
-                    
+                    a.download = fileName;
+
                     document.body.appendChild(a);
                     a.click();
                     document.body.removeChild(a);
-                    
+
                     window.URL.revokeObjectURL(url);
                 } catch (error) {
                     console.error('Erreur lors du téléchargement:', error);
@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    setupDownloadFlyer('downloadFlyer');
-    
-    setupDownloadFlyer('downloadFlyerHome');
+    setupDownloadFlyer('downloadFlyer', 'data/pdf/flyer_2028.pdf', 'flyer_2028.pdf');
+    setupDownloadFlyer('downloadFlyerHome', 'data/pdf/flyer_2028.pdf', 'flyer_2028.pdf');
+    setupDownloadFlyer('downloadFlyerChateauneuf', 'data/pdf/retraite_chateauneuf.pdf', 'retraite_chateauneuf.pdf');
 });
